@@ -1,8 +1,13 @@
+--This doesn't run. Minor errors occur.
+
+local gold = "minecraft:gold_ore"
 local gold = “minecraft:gold_ore" -- 金 local iron = “minecraft:iron_ore" 
 
 local redstone = "minecraft:redstone_ore" 
+local redstone = "minecraft:redstone_ore"
 
 local lapis = “minecraft:lapis_ore"
+local lapis = "minecraft:lapis_ore"
 
 -- 
 local diamond = "minecraft:diamond_ore"
@@ -24,7 +29,8 @@ return ret end
 function searchDig() 
 
 if inspectBlock() then
-turtle.dig() turtle.forward()
+turtle.dig() 
+turtle.forward()
 
 for i = 1, 4 do
 if inspectBlock() then
@@ -43,7 +49,7 @@ function digPro(down)
     for i = 1, down do
     local result = turtle.digDown() 
     if result == true then
-    count += 1
+    layer_count += 1
     else
          break
     end
@@ -67,13 +73,15 @@ function backToHome(up)
 end
 
 local test_args = {...} 
+local args = {}
 
 local  layer_practice = test_args[1]
     
 turtle.select(1) turtle.refuel()
 local up = digPro(layer_practice) backToHome(up)
 
-for j = 1, 4 do turtle.place() turtle.turnLeft()
+for j = 1, 4 do 
+    turtle.place() turtle.turnLeft()
 
 end
 turtle.up() turtle.placeDown()
